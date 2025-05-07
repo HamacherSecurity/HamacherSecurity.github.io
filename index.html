@@ -14,7 +14,8 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="index.html"><img src="assets/HSLogo-removebg.png" alt="Hamacher Security Logo" class="logo"></a>
+                <a href="index.html"><img src="assets/HSLogo-removebg.png" alt="Hamacher Security Logo"
+                        class="logo"></a>
                 <div class="menu-icon">
                     <div></div>
                     <div></div>
@@ -45,28 +46,28 @@
         <h2>Cybersecurity Statistics for Small Businesses</h2>
         <div class="stats-container">
             <div class="stat-box">
-            <h3>46%</h3>
-            <p>of all cyber breaches impact businesses with fewer than 1,000 employees.</p>
+                <h3>46%</h3>
+                <p>of all cyber breaches impact businesses with fewer than 1,000 employees.</p>
             </div>
             <div class="stat-box">
-            <h3>61%</h3>
-            <p>of SMBs were the target of a cyberattack in 2021.</p>
+                <h3>61%</h3>
+                <p>of SMBs were the target of a cyberattack in 2021.</p>
             </div>
             <div class="stat-box">
-            <h3>82%</h3>
-            <p>of ransomware attacks in 2021 were against companies with fewer than 1,000 employees.</p>
+                <h3>82%</h3>
+                <p>of ransomware attacks in 2021 were against companies with fewer than 1,000 employees.</p>
             </div>
             <div class="stat-box">
-            <h3>350%</h3>
-            <p>more social engineering attacks target small businesses compared to larger enterprises.</p>
+                <h3>350%</h3>
+                <p>more social engineering attacks target small businesses compared to larger enterprises.</p>
             </div>
             <div class="stat-box">
-            <h3>95%</h3>
-            <p>of cybersecurity incidents at SMBs cost between $826 and $653,587.</p>
+                <h3>95%</h3>
+                <p>of cybersecurity incidents at SMBs cost between $826 and $653,587.</p>
             </div>
             <div class="stat-box">
-            <h3>75%</h3>
-            <p>of SMBs could not continue operating if hit with ransomware.</p>
+                <h3>75%</h3>
+                <p>of SMBs could not continue operating if hit with ransomware.</p>
             </div>
         </div>
     </section>
@@ -128,8 +129,9 @@
                 </div>
             </div>
             <div class="carousel-nav">
-                <button class="prev-btn"><</button>
-                <button class="next-btn">></button>
+                <button class="prev-btn">
+                    << /button>
+                        <button class="next-btn">></button>
             </div>
         </div>
     </section>
@@ -167,7 +169,7 @@
         </p>
         <p>&copy; 2025 Hamacher Security.</p>
     </footer>
-    
+
     <!-- Terms of Service Modal Popup -->
     <div id="tos-modal" class="modal">
         <div class="modal-content">
@@ -220,17 +222,11 @@
 
         tosLink.onclick = function (event) {
             event.preventDefault();
-            modal.style.display = "block";
+            tosModal.style.display = "block";
         }
 
-        closeBtn.onclick = function () {
-            modal.style.display = "none";
-        }
-
-        window.onclick = function (event) {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
+        tosClose.onclick = function () {
+            tosModal.style.display = "none";
         }
     </script>
 
@@ -311,11 +307,16 @@
             modal.style.display = "none";
         }
 
+        // Combined window click handler
         window.onclick = function (event) {
             if (event.target === modal) {
                 modal.style.display = "none";
             }
+            if (event.target === tosModal) {
+                tosModal.style.display = "none";
+            }
         }
+
 
         menuIcon.addEventListener('click', () => {
             menuIcon.classList.toggle('active');
