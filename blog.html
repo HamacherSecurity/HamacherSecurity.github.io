@@ -51,9 +51,8 @@
         </div>
     </div>
     <script>
-        document.querySelectorAll('.blog-post h2').forEach(header => {
-            header.addEventListener('click', () => {
-                const post = header.parentElement;
+        document.querySelectorAll('.blog-post').forEach(post => {
+            post.addEventListener('mousedown', () => {
                 post.classList.toggle('active');
             });
         });
