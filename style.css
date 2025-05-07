@@ -10,6 +10,21 @@ body {
     margin: 0 30%;
 }
 
+/* Hamburger menu icon */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.menu-icon div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
 .navbar {
     display: flex;
     align-items: center;
@@ -17,6 +32,7 @@ body {
     background-color: #0b0c10;
     border-radius: 5px;
     justify-content: flex-start;
+    position: relative;
 }
 
 .navbar .logo {
@@ -71,6 +87,50 @@ header p {
     z-index: 1;
 }
 
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block;
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background-color: #0b0c10;
+        padding: 1rem 0;
+        margin: 0;
+        text-align: center;
+        z-index: 10;
+    }
+    .nav-links.active {
+        display: flex;
+        z-index: 10;
+    }
+    }
+
+    .navbar a {
+        padding: 1rem;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .menu-icon.active div:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .menu-icon.active div:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-icon.active div:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
 .cta-button {
     padding: 0.75rem 1.5rem;
     background-color: #1e90ff;
@@ -85,7 +145,7 @@ header p {
 .section {
     padding: 2rem 1rem;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 1rem auto;
 }
 
 .section h2 {

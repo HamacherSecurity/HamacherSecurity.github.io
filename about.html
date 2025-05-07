@@ -14,6 +14,11 @@
         <div class="container">
             <nav class="navbar">
                 <a href="index.html"><img src="assets/HSLogo-removebg.png" alt="Hamacher Security Logo" class="logo"></a>
+                <div class="menu-icon">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
                 <div class="nav-links">
                     <a href="index.html">Home</a>
                     <a href="#">About</a>
@@ -198,6 +203,8 @@
         const modal = document.getElementById("privacy-policy-modal");
         const privacyPolicyLink = document.getElementById("privacy-policy-link");
         const closeBtn = document.getElementById("close-btn");
+        const menuIcon = document.querySelector('.menu-icon');
+        const navLinks = document.querySelector('.nav-links');
 
         privacyPolicyLink.onclick = function (event) {
             event.preventDefault();
@@ -213,6 +220,11 @@
                 modal.style.display = "none";
             }
         }
+
+        menuIcon.addEventListener('click', () => {
+            menuIcon.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
     </script>
 </body>
 
