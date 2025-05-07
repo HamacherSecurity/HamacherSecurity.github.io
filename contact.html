@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/HSIcon-removebg.png" type="image/png">
     <title>Contact | Hamacher Security</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -13,7 +14,8 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="index.html"><img src="assets/HSLogo-removebg.png" alt="Hamacher Security Logo" class="logo"></a>
+                <a href="index.html"><img src="assets/HSLogo-removebg.png" alt="Hamacher Security Logo"
+                        class="logo"></a>
                 <div class="menu-icon">
                     <div></div>
                     <div></div>
@@ -58,7 +60,7 @@
         </p>
         <p>&copy; 2025 Hamacher Security.</p>
     </footer>
-    
+
     <!-- Terms of Service Modal Popup -->
     <div id="tos-modal" class="modal">
         <div class="modal-content">
@@ -111,18 +113,18 @@
 
         tosLink.onclick = function (event) {
             event.preventDefault();
-            tosModal.style.display = "block";
-        };
+            modal.style.display = "block";
+        }
 
-        tosClose.onclick = function () {
-            tosModal.style.display = "none";
-        };
+        closeBtn.onclick = function () {
+            modal.style.display = "none";
+        }
 
         window.onclick = function (event) {
-            if (event.target === tosModal) {
-                tosModal.style.display = "none";
+            if (event.target === modal) {
+                modal.style.display = "none";
             }
-        };
+        }
     </script>
 
     <!-- Modal Popup -->
@@ -192,11 +194,6 @@
         const closeBtn = document.getElementById("close-btn");
         const menuIcon = document.querySelector('.menu-icon');
         const navLinks = document.querySelector('.nav-links');
-
-        // Toggle navigation links visibility on hamburger menu click
-        menuIcon.onclick = function () {
-            navLinks.classList.toggle('active');
-        };
 
         privacyPolicyLink.onclick = function (event) {
             event.preventDefault();

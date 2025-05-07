@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/HSIcon-removebg.png" type="image/png">
     <title>Hamacher Security</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
@@ -41,6 +42,36 @@
     </section>
 
     <section class="section">
+        <h2>Cybersecurity Statistics for Small Businesses</h2>
+        <div class="stats-container">
+            <div class="stat-box">
+            <h3>46%</h3>
+            <p>of all cyber breaches impact businesses with fewer than 1,000 employees.</p>
+            </div>
+            <div class="stat-box">
+            <h3>61%</h3>
+            <p>of SMBs were the target of a cyberattack in 2021.</p>
+            </div>
+            <div class="stat-box">
+            <h3>82%</h3>
+            <p>of ransomware attacks in 2021 were against companies with fewer than 1,000 employees.</p>
+            </div>
+            <div class="stat-box">
+            <h3>350%</h3>
+            <p>more social engineering attacks target small businesses compared to larger enterprises.</p>
+            </div>
+            <div class="stat-box">
+            <h3>95%</h3>
+            <p>of cybersecurity incidents at SMBs cost between $826 and $653,587.</p>
+            </div>
+            <div class="stat-box">
+            <h3>75%</h3>
+            <p>of SMBs could not continue operating if hit with ransomware.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
         <h2>Our Services</h2>
         <div class="services-grid">
             <div class="service-box">
@@ -63,14 +94,65 @@
 
     <section class="section">
         <h2>Why Choose Us</h2>
-        <ul>
-            <li>Certified cybersecurity professionals</li>
-            <li>Tailored reporting and remediation plans</li>
-            <li>Transparent, hands-on support</li>
-            <li>Deep technical experience with modern threats</li>
-            <li>Best in business pricing</li>
-        </ul>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-card">
+                    <div class="card-content">
+                        <h3>Expert Team</h3>
+                        <p>Certified cybersecurity professionals with deep technical experience</p>
+                    </div>
+                </div>
+                <div class="carousel-card">
+                    <div class="card-content">
+                        <h3>Custom Solutions</h3>
+                        <p>Tailored reporting and remediation plans for your specific needs</p>
+                    </div>
+                </div>
+                <div class="carousel-card">
+                    <div class="card-content">
+                        <h3>Dedicated Support</h3>
+                        <p>Transparent, hands-on support throughout the process</p>
+                    </div>
+                </div>
+                <div class="carousel-card">
+                    <div class="card-content">
+                        <h3>Modern Protection</h3>
+                        <p>Up-to-date expertise in handling contemporary security threats</p>
+                    </div>
+                </div>
+                <div class="carousel-card">
+                    <div class="card-content">
+                        <h3>Competitive Pricing</h3>
+                        <p>Best in business pricing without compromising quality</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-nav">
+                <button class="prev-btn"><</button>
+                <button class="next-btn">></button>
+            </div>
+        </div>
     </section>
+    <script>
+        const carousel = document.querySelector('.carousel');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        let scrollAmount = 0;
+
+        prevBtn.addEventListener('click', () => {
+            carousel.scrollBy({
+                left: -300,
+                behavior: 'smooth'
+            });
+        });
+
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({
+                left: 300,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 
     <section class="section">
         <h2>Ready to Secure What Matters?</h2>

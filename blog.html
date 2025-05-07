@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Hamacher Security</title>
+    <link rel="icon" href="assets/HSIcon-removebg.png" type="image/png">
+    <title>Blog | Hamacher Security</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,7 +14,8 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="index.html"><img src="assets/HSLogo-removebg.png" alt="Hamacher Security Logo" class="logo"></a>
+                <a href="index.html"><img src="assets/HSLogo-removebg.png" alt="Hamacher Security Logo"
+                        class="logo"></a>
                 <div class="menu-icon">
                     <div></div>
                     <div></div>
@@ -30,28 +32,11 @@
     </header>
     <div class="blog-container">
         <div class="blog-post">
-            <h2>Understanding Cybersecurity Threats</h2>
-            <div class="content">
-                <p>In today's digital landscape, cybersecurity threats are more prevalent than ever. From phishing
-                    attacks
-                    to ransomware, understanding these threats is crucial for businesses of all sizes.</p>
-                <p>Stay informed and protect your organization by implementing robust security measures.</p>
-            </div>
-        </div>
-        <div class="blog-post">
-            <h2>Best Practices for Data Protection</h2>
-            <div class="content">
-                <p>Data protection is a top priority for any organization. Implementing best practices such as regular
-                    backups, encryption, and access controls can significantly reduce the risk of data breaches.</p>
-                <p>Learn more about how to safeguard your sensitive information.</p>
-            </div>
-        </div>
-        <div class="blog-post">
             <h2>The Importance of Employee Training</h2>
             <div class="content">
-                <p>Your employees are your first line of defense against cyber threats. Regular training sessions can help
+                <p>Your employees are your first line of defense against cyber threats. Regular training sessions can
+                    help
                     them recognize and respond to potential security risks.</p>
-                <p>Invest in your team's knowledge to enhance your organization's security posture.</p>
             </div>
         </div>
     </div>
@@ -123,18 +108,18 @@
 
         tosLink.onclick = function (event) {
             event.preventDefault();
-            tosModal.style.display = "block";
-        };
+            modal.style.display = "block";
+        }
 
-        tosClose.onclick = function () {
-            tosModal.style.display = "none";
-        };
+        closeBtn.onclick = function () {
+            modal.style.display = "none";
+        }
 
         window.onclick = function (event) {
-            if (event.target === tosModal) {
-                tosModal.style.display = "none";
+            if (event.target === modal) {
+                modal.style.display = "none";
             }
-        };
+        }
     </script>
 
     <!-- Modal Popup -->
@@ -204,11 +189,6 @@
         const closeBtn = document.getElementById("close-btn");
         const menuIcon = document.querySelector('.menu-icon');
         const navLinks = document.querySelector('.nav-links');
-
-        // Toggle navigation links visibility on hamburger menu click
-        menuIcon.onclick = function () {
-            navLinks.classList.toggle('active');
-        };
 
         privacyPolicyLink.onclick = function (event) {
             event.preventDefault();
