@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamacher Security</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html"><img src="assets/HSLogo-removebg.png" alt="Hamacher Security Logo" class="logo"></a>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="#">About</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="blog.html">Blog</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-box">
+                <h3>Vulnerability Assessments</h3>
+                <p>Thorough scanning and expert manual testing to uncover known and emerging threats across your
+                    infrastructure. We assess web applications, internal networks, cloud environments, and more.
+                    Our approach identifies exploitable weaknesses, misconfigurations, and insecure practices.
+                    Each finding is prioritized by severity and business impact, with clear remediation guidance
+                    tailored to your
+                    technical team.</p>
+            </div>
+            <div class="service-box">
+                <h3>Risk Analysis & Reporting</h3>
+                <p>We deliver clear, actionable security reports designed for both technical teams and executive
+                    leadership. Each report includes prioritized findings, impact analysis, proof-of-concept details,
+                    and practical remediation steps. Executive summaries distill business risk and regulatory relevance,
+                    while technical sections provide deep insights and reproducible data to guide remediation.</p>
+            </div>
+            <div class="service-box">
+                <h3>Security Awareness Training</h3>
+                <p>Our Security Awareness Training helps your team recognize and respond to threats like phishing,
+                    social engineering, and poor password practices. Sessions are tailored to your industry and
+                    delivered through engaging formats—virtual, in-person, or self-paced. Empower your workforce
+                    to become your first line of defense.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Ready to Secure What Matters?</h2>
+        <p>Let’s secure your infrastructure before someone else tests it for you.</p>
+        <br>
+        <a href="contact.html" class="cta-button">Get in Touch</a>
+    </section>
+    <footer>
+        <p>
+            <a href="#" id="privacy-policy-link">Privacy Policy</a> |
+            <a href="#" id="tos-link">Terms of Service</a>
+        </p>
+        <p>&copy; 2025 Hamacher Security.</p>
+    </footer>
+    
+    <!-- Terms of Service Modal Popup -->
+    <div id="tos-modal" class="modal">
+        <div class="modal-content">
+            <h2>Terms of Service</h2>
+            <span class="close-btn" id="tos-close-btn">&times;</span>
+            <p><strong>Effective Date:</strong> May 7, 2025</p>
+
+            <h3>1. Services</h3>
+            <p>Hamacher Security provides cybersecurity consulting services, including vulnerability assessments, risk
+                analysis, and awareness training. Specific deliverables and terms are defined per client engagement.</p>
+
+            <h3>2. Client Responsibilities</h3>
+            <p>Clients must provide accurate information, proper authorization, and access to environments being
+                assessed. Unauthorized testing of third-party systems is strictly prohibited.</p>
+
+            <h3>3. Confidentiality</h3>
+            <p>All client information is kept confidential. We do not share or disclose sensitive data without written
+                consent, unless legally required.</p>
+
+            <h3>4. Limitation of Liability</h3>
+            <p>We are not liable for indirect, incidental, or consequential damages arising from use of our services.
+                Clients are responsible for acting on provided recommendations.</p>
+
+            <h3>5. Intellectual Property</h3>
+            <p>Reports, tools, and training content remain our property unless otherwise agreed. Clients may use
+                deliverables internally under a non-transferable license.</p>
+
+            <h3>6. Payment Terms</h3>
+            <p>Fees and payment schedules are detailed in client agreements. Late payments may result in service
+                suspension.</p>
+
+            <h3>7. Termination</h3>
+            <p>Either party may terminate the engagement with notice. Work completed to date will be invoiced
+                accordingly.</p>
+
+            <h3>8. Website Usage</h3>
+            <p>Do not use our website for unlawful activity or to attempt unauthorized access. We reserve the right to
+                block misuse.</p>
+
+            <h3>9. Privacy</h3>
+            <p>Your use of our site and services is also governed by our Privacy Policy</p>
+        </div>
+    </div>
+
+    <script>
+        // Terms of Service Modal Logic
+        const tosModal = document.getElementById("tos-modal");
+        const tosLink = document.getElementById("tos-link");
+        const tosClose = document.getElementById("tos-close-btn");
+
+        tosLink.onclick = function (event) {
+            event.preventDefault();
+            tosModal.style.display = "block";
+        };
+
+        tosClose.onclick = function () {
+            tosModal.style.display = "none";
+        };
+
+        window.onclick = function (event) {
+            if (event.target === tosModal) {
+                tosModal.style.display = "none";
+            }
+        };
+    </script>
+
+    <!-- Modal Popup -->
+    <div id="privacy-policy-modal" class="modal">
+        <div class="modal-content">
+
+            <h2>Privacy Policy</h2>
+            <span class="close-btn" id="close-btn">&times;</span>
+            <p><strong>Effective Date:</strong> May 7, 2025</p>
+            <p>Hamacher Security (“we,” “our,” or “us”) is committed to protecting your privacy. This Privacy Policy
+                outlines how we collect, use, and protect your information when you visit our website or engage with our
+                services.</p>
+
+            <h3>1. Information We Collect</h3>
+            <p>We may collect the following types of information:</p>
+            <ul>
+                <li><strong>Personal Information:</strong> Name, email address, phone number, and other contact details
+                    you provide through contact forms or consultation requests.</li>
+            </ul>
+
+            <h3>2. How We Use Your Information</h3>
+            <p>We use your information to:</p>
+            <ul>
+                <li>Respond to inquiries or consultation requests</li>
+                <li>Provide and improve our services</li>
+                <li>Communicate important updates</li>
+            </ul>
+
+            <h3>3. Information Sharing</h3>
+            <p>We do not sell, rent, or share your personal information with third parties except:</p>
+            <ul>
+                <li>With your explicit consent</li>
+                <li>To comply with legal obligations</li>
+                <li>With trusted service providers under confidentiality agreements (e.g., email hosting)</li>
+            </ul>
+
+            <h3>4. Data Security</h3>
+            <p>We implement industry-standard security measures to protect your personal information from unauthorized
+                access, alteration, or disclosure.</p>
+
+            <h3>5. Your Rights</h3>
+            <p>You may:</p>
+            <ul>
+                <li>Request access to your personal information</li>
+                <li>Request correction or deletion of your data</li>
+                <li>Opt out of future communications at any time</li>
+            </ul>
+            <p>To exercise these rights, contact us at <strong>jacobhhamacher@gmail.com</strong>.</p>
+
+            <h3>6. Changes to This Policy</h3>
+            <p>We may update this Privacy Policy from time to time. Updates will be posted on this page with an updated
+                effective date.</p>
+
+            <h3>7. Contact Us</h3>
+            <p>If you have questions or concerns about this Privacy Policy, contact us at:</p>
+            <p><strong>Hamacher Security</strong><br>Website:
+                <strong>www.hamachersecurity.com</strong>
+            </p>
+        </div>
+    </div>
+
+
+    <script>
+        // JavaScript for opening and closing the modal
+        const modal = document.getElementById("privacy-policy-modal");
+        const privacyPolicyLink = document.getElementById("privacy-policy-link");
+        const closeBtn = document.getElementById("close-btn");
+
+        privacyPolicyLink.onclick = function (event) {
+            event.preventDefault();
+            modal.style.display = "block";
+        }
+
+        closeBtn.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function (event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>
