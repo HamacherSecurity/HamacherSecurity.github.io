@@ -143,6 +143,11 @@ header p {
     text-decoration: none;
 }
 
+.cta-button:hover {
+    background-color: #0077cc;
+    box-shadow: 0 4px 20px 0 rgba(30, 144, 255, 0.3);
+}
+
 .section {
     padding: 2rem 1rem;
     max-width: 1000px;
