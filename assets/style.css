@@ -65,8 +65,8 @@ body {
 }
 
 header {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("assets/code.jpg");
-    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("code.jpg");
+    background-size: 100% auto;
     background-position: center;
     padding: 4rem 2rem;
     text-align: center;
@@ -212,7 +212,7 @@ header p {
 }
 
 footer {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("assets/code.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("code.jpg");
     background-size: cover;
     background-position: center;
     text-align: center;
