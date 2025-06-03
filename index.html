@@ -25,6 +25,9 @@
                     <a href="#about">About</a>
                     <a href="#contact">Contact</a>
                     <a href="#blog">Blog</a>
+                    <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+                        <span id="theme-icon" aria-hidden="true">🌙</span>
+                    </button>
                 </div>
             </nav>
         </div>
@@ -323,103 +326,142 @@
     </footer>
 
     <script>
-        // ==========Cursor Logic==========
-        // Cursor Creation and Updating
-        let cursor = document.body.querySelector('.custom-cursor');
-        if (!cursor) {
-            cursor = document.createElement('div');
-            cursor.classList.add('custom-cursor');
-            document.body.appendChild(cursor);
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            // ========== Theme Toggle Logic ==========
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const body = document.body;
 
-        // Use pointer events for more immediate updates
-        document.addEventListener('pointermove', (e) => {
-            cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
-        });
-
-        // Cursor Dynamic Effects
-        document.querySelectorAll('a, button, [role="button"], .service-box, .stat-box, .service-link, .blog-post, input, textarea').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-            cursor.classList.add('cursor-hover');
-            });
-            el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('cursor-hover', 'cursor-active');
-            });
-            el.addEventListener('mousedown', () => {
-            cursor.classList.add('cursor-active');
-            });
-            el.addEventListener('mouseup', () => {
-            cursor.classList.remove('cursor-active');
-            });
-            el.addEventListener('click', () => {
-            cursor.classList.add('cursor-click');
-            setTimeout(() => cursor.classList.remove('cursor-click'), 100);
-            });
-        });
-
-        // ==========Page Loading Logic==========
-        // Show/hide index header based on visible section
-        function updateIndexHeader() {
-            const indexHeader = document.getElementById('index-header');
-            const indexSection = document.getElementById('index');
-            indexHeader.style.display = indexSection.hidden ? 'none' : '';
-        }
-        // Show only the home section on page load
-        document.querySelectorAll('main section').forEach(section => {
-            section.hidden = section.id !== 'index';
-        });
-
-        // Initial check
-        updateIndexHeader();
-
-        document.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                document.querySelectorAll('main section').forEach(section => {
-                    section.hidden = section.id !== targetId;
-                });
-                updateIndexHeader();
-            });
-        });
-
-        //==========Blog Post Logic==========
-        document.querySelectorAll('.blog-post').forEach(post => {
-            post.addEventListener('mousedown', () => {
-                post.classList.toggle('active');
-            });
-        });
-
-        //==========Carousel Logic==========
-        const carousel = document.querySelector('.carousel');
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        let scrollAmount = 0;
-
-        prevBtn.addEventListener('click', () => {
-            carousel.scrollBy({
-                left: -300,
-                behavior: 'smooth'
-            });
-        });
-
-        nextBtn.addEventListener('click', () => {
-            carousel.scrollBy({
-                left: 300,
-                behavior: 'smooth'
-            });
-        });
-
-        //==========Terms of Service Modal Logic==========
-        ['Priv-pop', 'ToS-pop'].forEach(id => {
-            const dialog = document.getElementById(id);
-            if (dialog) {
-                dialog.addEventListener("click", (e) => {
-                    if (e.target === dialog) {
-                        dialog.close();
-                    }
-                });
+            // Check for a saved theme preference in localStorage
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                body.classList.add(savedTheme);
+            } else {
+                // Default to dark mode if no preference is saved
+                body.classList.add('dark-mode');
             }
+
+            const themeIcon = document.getElementById('theme-icon');
+            function updateThemeIcon() {
+                if (body.classList.contains('dark-mode')) {
+                    themeIcon.textContent = '🌙';
+                } else {
+                    themeIcon.textContent = '☀️';
+                }
+            }
+            updateThemeIcon();
+
+            themeToggleBtn.addEventListener('click', () => {
+                if (body.classList.contains('dark-mode')) {
+                    body.classList.remove('dark-mode');
+                    body.classList.add('light-mode');
+                    localStorage.setItem('theme', 'light-mode');
+                } else {
+                    body.classList.remove('light-mode');
+                    body.classList.add('dark-mode');
+                    localStorage.setItem('theme', 'dark-mode');
+                }
+                updateThemeIcon();
+            });
+
+            // ========== Hamburger Menu Toggle ==========
+            const menuIcon = document.querySelector('.menu-icon');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuIcon.addEventListener('click', () => {
+                menuIcon.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuIcon.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // ========== Custom Cursor Logic ==========
+            let cursor = document.body.querySelector('.custom-cursor');
+            if (!cursor) {
+                cursor = document.createElement('div');
+                cursor.classList.add('custom-cursor');
+                document.body.appendChild(cursor);
+            }
+
+            document.addEventListener('pointermove', (e) => {
+                cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+            });
+
+            document.querySelectorAll('a, button, .prev-btn, .next-btn, [command="show-modal"], .service-box, .stat-box, .service-link, .blog-post, input, textarea').forEach(el => {
+                el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
+                el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover', 'cursor-active'));
+                el.addEventListener('mousedown', () => cursor.classList.add('cursor-active'));
+                el.addEventListener('mouseup', () => cursor.classList.remove('cursor-active'));
+                el.addEventListener('click', () => {
+                    cursor.classList.add('cursor-click');
+                    setTimeout(() => cursor.classList.remove('cursor-click'), 100);
+                });
+            });
+
+            // ========== Page Loading Logic ==========
+            function updateIndexHeader() {
+                const indexHeader = document.getElementById('index-header');
+                const indexSection = document.getElementById('index');
+                indexHeader.style.display = indexSection.hidden ? 'none' : '';
+            }
+            document.querySelectorAll('main section').forEach(section => {
+                section.hidden = section.id !== 'index';
+            });
+            updateIndexHeader();
+
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.querySelectorAll('main section').forEach(section => {
+                        section.hidden = section.id !== targetId;
+                    });
+                    updateIndexHeader();
+                });
+            });
+
+            // ========== Blog Post Logic ==========
+            document.querySelectorAll('.blog-post').forEach(post => {
+                post.addEventListener('mousedown', () => {
+                    post.classList.toggle('active');
+                });
+            });
+
+            // ========== Carousel Logic ==========
+            const carousel = document.querySelector('.carousel');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+
+            prevBtn.addEventListener('click', () => {
+                carousel.scrollBy({
+                    left: -300,
+                    behavior: 'smooth'
+                });
+            });
+
+            nextBtn.addEventListener('click', () => {
+                carousel.scrollBy({
+                    left: 300,
+                    behavior: 'smooth'
+                });
+            });
+
+            // ========== Terms of Service Modal Logic ==========
+            ['Priv-pop', 'ToS-pop'].forEach(id => {
+                const dialog = document.getElementById(id);
+                if (dialog) {
+                    dialog.addEventListener("click", (e) => {
+                        if (e.target === dialog) {
+                            dialog.close();
+                        }
+                    });
+                }
+            });
         });
     </script>
 </body>
