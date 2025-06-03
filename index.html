@@ -325,9 +325,12 @@
     <script>
         // ==========Cursor Logic==========
         // Cursor Creation and Updating
-        const cursor = document.createElement('div');
-        cursor.classList.add('custom-cursor');
-        document.body.appendChild(cursor);
+        let cursor = document.body.querySelector('.custom-cursor');
+        if (!cursor) {
+            cursor = document.createElement('div');
+            cursor.classList.add('custom-cursor');
+            document.body.appendChild(cursor);
+        }
 
         // Use pointer events for more immediate updates
         document.addEventListener('pointermove', (e) => {
