@@ -37,6 +37,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .contact-container {
@@ -76,7 +77,7 @@ body {
     height: 3px;
     background-color: var(--text-color);
     margin: 5px 0;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease, background-color 0.5s ease;
 }
 
 .navbar {
@@ -87,6 +88,7 @@ body {
     border-radius: 5px;
     justify-content: flex-start;
     position: relative;
+    transition: background-color 0.5s ease;
 }
 
 .navbar .logo {
@@ -126,6 +128,7 @@ header {
     padding: 4rem 2rem;
     text-align: center;
     position: relative;
+    transition: color 0.5s ease;
 }
 
 .light-mode header {
@@ -137,6 +140,8 @@ header h1 {
     margin-bottom: 0.5rem;
     position: relative;
     z-index: 1;
+    color: var(--text-color);
+    transition: color 0.5s ease;
 }
 
 header p {
@@ -144,6 +149,8 @@ header p {
     margin-bottom: 1.5rem;
     position: relative;
     z-index: 1;
+    color: var(--text-color);
+    transition: color 0.5s ease;
 }
 
 @media screen and (max-width: 768px) {
@@ -165,6 +172,7 @@ header p {
         margin: 0;
         text-align: center;
         z-index: 10;
+        transition: background-color 0.5s ease;
     }
 
     .nav-links.active {
@@ -200,6 +208,7 @@ header p {
     color: var(--text-color);
     cursor: pointer;
     text-decoration: none;
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .cta-button:hover {
@@ -218,7 +227,7 @@ header p {
     height: 100%;
     box-sizing: border-box;
     vertical-align: middle;
-    justify-content: center; /* Ensures icon is centered in button */
+    justify-content: center;
 }
 
 /* Center theme toggle in nav-links on mobile */
@@ -251,6 +260,7 @@ header p {
 .section h2 {
     color: var(--primary-color);
     margin-bottom: 1rem;
+    transition: color 0.5s ease;
 }
 .services-grid {
     display: grid;
@@ -264,13 +274,14 @@ header p {
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.5s ease;
 }
 
 .service-box h3 {
     font-size: 1.5rem;
     color: var(--text-color);
     margin-bottom: 0.5rem;
+    transition: color 0.5s ease;
 }
 .service-box:hover h3 {
     transform: none;
@@ -280,6 +291,7 @@ header p {
     font-size: 1rem;
     color: var(--text-color);
     line-height: 1.5;
+    transition: color 0.5s ease;
 }
 .service-box:hover p {
     transform: none;
@@ -312,6 +324,7 @@ footer {
     font-size: 0.9rem;
     color: var(--border-color);
     margin-top: auto;
+    transition: color 0.5s ease;
 }
 
 .light-mode footer {
@@ -321,6 +334,7 @@ footer {
 a {
     color: var(--primary-color);
     text-decoration: none;
+    transition: color 0.5s ease;
 }
 
 /* CSS for the popup modal */
@@ -371,6 +385,7 @@ dialog[open] {
     padding: 0;
     border: none;
     animation: fadeInDialog 0.25s;
+    transition: background 0.5s ease;
 }
 
 .light-mode dialog[open] {
@@ -384,6 +399,7 @@ dialog[open] {
 
 dialog::backdrop {
     background: rgba(11, 12, 16, 0.85); /* Specific dark backdrop */
+    transition: background 0.5s ease;
 }
 
 .light-mode dialog::backdrop {
@@ -401,6 +417,7 @@ dialog .modal-content {
     position: relative;
     overflow-y: auto;
     max-height: 80vh;
+    transition: background 0.5s ease, color 0.5s ease;
 }
 
 dialog .modal-content h2,
@@ -408,6 +425,7 @@ dialog .modal-content h3 {
     color: var(--primary-color);
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
+    transition: color 0.5s ease;
 }
 
 dialog .modal-content h2 {
@@ -416,10 +434,11 @@ dialog .modal-content h2 {
 }
 
 dialog .modal-content p {
-    color: var(--border-color); /* Adjusted for better visibility in light mode */
+    color: var(--border-color);
     margin-bottom: 1rem;
     font-size: 1rem;
     line-height: 1.6;
+    transition: color 0.5s ease;
 }
 
 dialog .close-btn {
@@ -469,11 +488,14 @@ form {
 
 label {
     font-weight: 600;
+    color: var(--text-color);
+    transition: color 0.5s ease;
 }
 
 .service-box a {
     text-decoration: none;
-    color: var(--text-color); /* Adjusted for better visibility in light mode */
+    color: var(--text-color);
+    transition: color 0.5s ease;
 }
 
 input,
@@ -483,8 +505,9 @@ textarea {
     border: 1px solid var(--border-color);
     font-size: 1rem;
     width: 95%;
-    background-color: var(--background-color); /* Ensures input background changes */
-    color: var(--text-color); /* Ensures input text color changes */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
 }
 
 input:focus,
@@ -507,7 +530,7 @@ button {
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.5s ease, color 0.5s ease;
     width: 100%;
 }
 
@@ -531,13 +554,15 @@ button:hover {
     padding: 1.5rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.5s ease;
     cursor: pointer;
 }
 
 .blog-post h2 {
     margin: 0;
     position: relative;
+    color: var(--primary-color);
+    transition: color 0.5s ease;
 }
 
 .blog-post .content {
@@ -595,7 +620,7 @@ button:hover {
     box-shadow: 0 4px 6px rgba(0,0,0,0.15);
     padding: 1.5rem 1rem;
     text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.5s ease;
     scroll-snap-align: center;
 }
 
@@ -608,13 +633,15 @@ button:hover {
     color: var(--primary-color);
     margin-bottom: 0.75rem;
     font-size: 1.3rem;
+    transition: color 0.5s ease;
 }
 
 .carousel li p {
-    color: var(--border-color); /* Adjusted for better visibility in light mode */
+    color: var(--border-color);
     font-size: 1rem;
     line-height: 1.5;
     margin: 0;
+    transition: color 0.5s ease;
 }
 
 .carousel::-webkit-scrollbar {
@@ -623,7 +650,7 @@ button:hover {
 
 .prev-btn,
 .next-btn {
-    background-color: var(--carousel-arrow-bg); /* Use variable for arrow background */
+    background-color: var(--carousel-arrow-bg);
     color: var(--text-color);
     border: none;
     border-radius: 50%;
@@ -634,7 +661,7 @@ button:hover {
     justify-content: center;
     cursor: pointer;
     opacity: 0.8;
-    transition: opacity 0.3s;
+    transition: opacity 0.3s, background-color 0.5s ease, color 0.5s ease;
     font-size: 1.5rem;
 }
 
@@ -672,7 +699,7 @@ button:hover {
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.5s ease;
 }
 
 .stat-box:hover {
@@ -684,12 +711,14 @@ button:hover {
     font-size: 2rem;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
+    transition: color 0.5s ease;
 }
 
 .stat-box p {
     font-size: 1rem;
-    color: var(--border-color); /* Adjusted for better visibility in light mode */
+    color: var(--border-color);
     line-height: 1.5;
+    transition: color 0.5s ease;
 }
 
 /* Scrollbar Styles */
@@ -697,6 +726,7 @@ button:hover {
     width: 8px;
     background: var(--background-color);
     border-radius: 6px;
+    transition: background 0.5s ease;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -704,6 +734,7 @@ button:hover {
     border-radius: 8px;
     width: 6px;
     border: var(--secondary-background) 1px solid;
+    transition: background 0.5s ease, border-color 0.5s ease;
 }
 
 /* Cursor Styles */
@@ -742,7 +773,7 @@ dialog[open] * {
     pointer-events: none;
     z-index: 2147483648;
     transform: translate(-50%, -50%);
-    transition: background 0.2s, transform 0.08s;
+    transition: background 0.2s, transform 0.08s, border-color 0.5s;
     border: var(--secondary-background) 1px solid;
 }
 
@@ -750,9 +781,9 @@ dialog[open] * {
 .custom-cursor.cursor-hover {
     background: transparent;
     border: 2px solid var(--primary-color);
-    box-shadow: 0 0 12px rgba(var(--shadow-color-rgb), 0.53), 0 0 0 4px var(--secondary-background); /* Adjusted shadow color */
+    box-shadow: 0 0 12px rgba(var(--shadow-color-rgb), 0.53), 0 0 0 4px var(--secondary-background);
     transform: translate(-50%, -50%) scale(1.5);
-    transition: background 0.5s, transform 0.08s, box-shadow 0.5s;
+    transition: background 0.5s, transform 0.08s, box-shadow 0.5s, border-color 0.5s;
 }
 
 .custom-cursor:not(.cursor-hover):not(.cursor-active):not(.cursor-click) {
@@ -760,20 +791,21 @@ dialog[open] * {
     border: 1px solid var(--secondary-background);
     box-shadow: none;
     transform: translate(-50%, -50%) scale(1);
-    transition: background 0.5s, transform 0.08s, box-shadow 0.5s;
+    transition: background 0.5s, transform 0.08s, box-shadow 0.5s, border-color 0.5s;
 }
 
 .custom-cursor.cursor-active {
     background: var(--hover-color);
     border: 2px solid var(--primary-color);
     transform: translate(-50%, -50%) scale(0.85);
-    box-shadow: 0 0 16px rgba(var(--shadow-color-rgb), 0.33); /* Adjusted shadow color */
+    box-shadow: 0 0 16px rgba(var(--shadow-color-rgb), 0.33);
+    transition: background 0.5s, transform 0.08s, box-shadow 0.5s, border-color 0.5s;
 }
 
 .custom-cursor.cursor-click {
     background: var(--text-color); /* White in dark mode, but changes with text-color for light mode */
     border: 2px solid var(--primary-color);
     transform: translate(-50%, -50%) scale(1.8);
-    box-shadow: 0 0 24px rgba(var(--shadow-color-rgb), 0.73); /* Adjusted shadow color */
-    transition: background 0.05s, transform 0.05s, box-shadow 0.05s;
+    box-shadow: 0 0 24px rgba(var(--shadow-color-rgb), 0.73);
+    transition: background 0.05s, transform 0.05s, box-shadow 0.05s, border-color 0.05s;
 }
