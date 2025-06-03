@@ -179,7 +179,6 @@ header p {
     box-shadow: 0 4px 20px 0 rgba(var(--shadow-color-rgb), 0.3);
     transform: translateY(-2px);
 }
-
 #theme-toggle {
     background: none;
     color: inherit;
@@ -191,6 +190,16 @@ header p {
     height: 100%;
     box-sizing: border-box;
     vertical-align: middle;
+    justify-content: center; /* Ensures icon is centered in button */
+}
+
+/* Center theme toggle in nav-links on mobile */
+@media screen and (max-width: 768px) {
+    #theme-toggle {
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 #theme-toggle:hover {
@@ -550,11 +559,12 @@ button:hover {
 
 .carousel li {
     flex: 0 0 auto;
-    width: 300px;
+    width: 260px;
+    max-width: 85vw;
     background-color: var(--secondary-background);
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-    padding: 2rem 1.5rem;
+    padding: 1.5rem 1rem;
     text-align: center;
     transition: transform 0.2s, box-shadow 0.2s;
     scroll-snap-align: center;
@@ -613,8 +623,9 @@ button:hover {
         padding: 1rem 0;
     }
     .carousel li {
-        width: 85vw;
-        padding: 1.2rem 0.8rem;
+        width: 65vw;
+        padding: 1rem 0.5rem;
+        scroll-snap-align: center;
     }
 }
 
