@@ -24,16 +24,44 @@
     --carousel-arrow-bg: #0033cc;
 }
 
+html, body {
+    height: 100%;
+    min-height: 100%;
+}
+
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     color: var(--text-color);
     background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .contact-container {
     max-width: 1200px;
     margin: 0 30%;
+}
+
+@media (max-width: 1200px) {
+    .contact-container {
+        margin: 0 10%;
+    }
+}
+
+@media (max-width: 800px) {
+    .contact-container {
+        margin: 0 3%;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    .contact-container {
+        margin: 0 1%;
+        padding: 0 0.5rem;
+    }
 }
 
 /* Hamburger menu icon */
@@ -283,6 +311,7 @@ footer {
     padding: 2rem;
     font-size: 0.9rem;
     color: var(--border-color);
+    margin-top: auto;
 }
 
 .light-mode footer {
