@@ -25,9 +25,6 @@
                     <a href="#about">About</a>
                     <a href="#contact">Contact</a>
                     <a href="#blog">Blog</a>
-                    <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-                        <span id="theme-icon" aria-hidden="true">🌙</span>
-                    </button>
                 </div>
             </nav>
         </div>
@@ -79,7 +76,7 @@
                 </div>
             </div>
 
-            <div class="section">
+            <div class="section" id="services">
                 <h2>Our Services</h2>
                 <div class="services-grid">
                     <div class="service-box">
@@ -192,7 +189,7 @@
                         <label for="message">Message</label><br>
                         <textarea id="message" name="message" required></textarea>
                     </div>
-                    <button type="submit">Send Message</button>
+                    <button type="submit" id="send-btn">Send Message</button>
                 </form>
             </div>
         </section>
@@ -213,6 +210,7 @@
     </main>
     <footer>
         <div id="popup-stuff">
+            
             <button command="show-modal" commandfor="ToS-pop">Terms of Service</button>
             <dialog id="ToS-pop" closeby="any">
                 <div class="modal-content">
@@ -321,6 +319,9 @@
                     </p>
                 </div>
             </dialog>
+            <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+                <span id="theme-icon" aria-hidden="true">Toggle Theme 🌙</span>
+            </button>
         </div>
         <p>&copy; 2025 Makan Security.</p>
     </footer>
@@ -343,9 +344,9 @@
             const themeIcon = document.getElementById('theme-icon');
             function updateThemeIcon() {
                 if (body.classList.contains('dark-mode')) {
-                    themeIcon.textContent = '🌙';
+                    themeIcon.textContent = 'Toggle Theme 🌙';
                 } else {
-                    themeIcon.textContent = '☀️';
+                    themeIcon.textContent = 'Toggle Theme ☀️';
                 }
             }
             updateThemeIcon();
@@ -381,16 +382,42 @@
             });
 
             // ========== Custom Cursor Logic ==========
-            let cursor = document.body.querySelector('.custom-cursor');
+            let cursor = document.querySelector('.custom-cursor');
             if (!cursor) {
                 cursor = document.createElement('div');
-                cursor.classList.add('custom-cursor');
+                cursor.className = 'custom-cursor';
                 document.body.appendChild(cursor);
             }
 
+            let mouseX = 0, mouseY = 0;
+            let prevX = 0, prevY = 0;
+            let velocityX = 0, velocityY = 0;
+
             document.addEventListener('pointermove', (e) => {
-                cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+                mouseX = e.clientX;
+                mouseY = e.clientY;
             });
+
+            function animateCursor() {
+                // Calculate velocity
+                velocityX = mouseX - prevX;
+                velocityY = mouseY - prevY;
+
+                // Predict position (optional)
+                let predictedX = mouseX + velocityX;
+                let predictedY = mouseY + velocityY;
+
+                // Move cursor (you can use predictedX/Y instead of mouseX/Y if you want)
+                cursor.style.transform = `translate(${predictedX}px, ${predictedY}px)`;
+
+                // Save current as previous for next frame
+                prevX = mouseX;
+                prevY = mouseY;
+
+                requestAnimationFrame(animateCursor);
+            }
+
+            requestAnimationFrame(animateCursor);
 
             document.querySelectorAll('a, button, .prev-btn, .next-btn, [command="show-modal"], .service-box, .stat-box, .service-link, .blog-post, input, textarea').forEach(el => {
                 el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
