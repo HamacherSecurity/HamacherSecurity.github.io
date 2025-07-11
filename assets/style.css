@@ -47,27 +47,50 @@ body {
 }
 
 .contact-container {
-    max-width: 1200px;
-    margin: 0 30%;
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: var(--secondary-background);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-color);
 }
 
-@media (max-width: 1200px) {
+.contact-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.contact-container p {
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    text-align: center;
+    opacity: 0.9;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
     .contact-container {
-        margin: 0 10%;
+        margin: 2rem;
+        padding: 1.5rem;
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 480px) {
     .contact-container {
-        margin: 0 3%;
-        max-width: 100%;
-    }
-}
-
-@media (max-width: 500px) {
-    .contact-container {
-        margin: 0 1%;
-        padding: 0 0.5rem;
+        margin: 1rem;
+        padding: 1rem;
     }
 }
 
@@ -287,7 +310,21 @@ header p {
 
 .section h2 {
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    text-align: center;
+    transition: color 0.5s ease;
+}
+
+.section-description {
+    color: var(--text-color);
+    opacity: 0.9;
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
     transition: color 0.5s ease;
 }
 .services-grid {
@@ -612,50 +649,52 @@ button:hover {
 
 /* Blog Styles */
 .blog-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    margin: 2rem auto;
-    max-width: 90%;
-    padding: 0 1rem;
+    margin: 2rem 0;
 }
 
 .blog-post {
-    background-color: var(--secondary-background);
-    padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.5s ease;
+    background: var(--secondary-background);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
     cursor: pointer;
 }
 
-.blog-post h2 {
-    margin: 0;
-    position: relative;
+.blog-post h3 {
     color: var(--primary-color);
-    transition: color 0.5s ease;
+    margin: 0 0 1rem 0;
+    position: relative;
+    padding-right: 1.5rem;
 }
 
-.blog-post .content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-}
-
-.blog-post.active .content {
-    max-height: 1000px;
-    transition: max-height 0.2s ease-in;
-}
-
-.blog-post h2::after {
+.blog-post h3::after {
     content: '+';
     position: absolute;
     right: 0;
     transition: transform 0.2s ease;
 }
 
-.blog-post.active h2::after {
+.blog-post.active h3::after {
     transform: rotate(45deg);
+}
+
+.blog-post .content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.blog-post.active .content {
+    max-height: 500px;
+}
+
+.blog-post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(var(--shadow-color-rgb), 0.1);
 }
 
 /* Carousel Styles */
