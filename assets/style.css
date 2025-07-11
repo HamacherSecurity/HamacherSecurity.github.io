@@ -1,27 +1,33 @@
 :root {
-    /* Dark Mode Colors */
-    --background-color: #0b0c10;
-    --text-color: #fff;
-    --primary-color: #1f41a3;
-    --secondary-background: #1c1e23;
-    --hover-color: #2c59cb;
-    --shadow-color-rgb: 30, 144, 255;
-    --border-color: #ccc;
+    /* Dark Mode Colors - Professional Security Theme */
+    --background-color: #0a0e17;
+    --text-color: #e6e9f0;
+    --primary-color: #3a86ff;
+    --secondary-background: #1a1f2e;
+    --hover-color: #2667cc;
+    --accent-color: #8338ec;
+    --shadow-color-rgb: 58, 134, 255;
+    --border-color: #2a3042;
     --close-btn-color: #aaa;
-    --carousel-arrow-bg: #2c59cb;
+    --carousel-arrow-bg: #3a86ff;
+    --gradient-start: #3a86ff;
+    --gradient-end: #8338ec;
 }
 
 .light-mode {
     /* Light Mode Colors */
-    --background-color: #ffffff;
-    --text-color: #111111;
-    --primary-color: #0033cc;
-    --secondary-background: #f5f7fa;
-    --hover-color: #001a66;
-    --shadow-color-rgb: 0, 51, 204;
-    --border-color: #222;
-    --close-btn-color: #222;
-    --carousel-arrow-bg: #0033cc;
+    --background-color: #f8f9fa;
+    --text-color: #212529;
+    --primary-color: #3a86ff;
+    --secondary-background: #ffffff;
+    --hover-color: #2667cc;
+    --accent-color: #8338ec;
+    --shadow-color-rgb: 58, 134, 255;
+    --border-color: #dee2e6;
+    --close-btn-color: #495057;
+    --carousel-arrow-bg: #3a86ff;
+    --gradient-start: #3a86ff;
+    --gradient-end: #8338ec;
 }
 
 html, body {
@@ -121,36 +127,53 @@ body {
 }
 
 header {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("code.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: top center;
-    padding: 4rem 2rem;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    padding: 6rem 2rem 8rem;
     text-align: center;
     position: relative;
-    transition: color 0.5s ease;
+    transition: all 0.5s ease;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    margin-bottom: -5rem;
 }
 
-.light-mode header {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url("code.jpg");
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("assets/code.jpg") center/cover no-repeat;
+    opacity: 0.15;
+    mix-blend-mode: overlay;
+}
+
+.light-mode header::before {
+    opacity: 0.1;
+    mix-blend-mode: multiply;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 3.5rem;
+    margin: 0 auto 1.5rem;
+    max-width: 800px;
     position: relative;
     z-index: 1;
-    color: var(--text-color);
-    transition: color 0.5s ease;
+    color: white;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
 header p {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    margin: 0 auto 2.5rem;
+    max-width: 700px;
     position: relative;
     z-index: 1;
-    color: var(--text-color);
-    transition: color 0.5s ease;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.6;
+    font-weight: 300;
 }
 
 @media screen and (max-width: 768px) {
@@ -312,19 +335,42 @@ header p {
 }
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin: 4rem auto;
+    max-width: 1200px;
 }
 
 .service-box {
-    padding: 1.5rem;
-    border-radius: 8px;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    background: var(--secondary-background);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.service-box::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
 }
 
 .service-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 0px 10px 10px rgba(var(--shadow-color-rgb),0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(var(--shadow-color-rgb),0.15);
+}
+
+.service-box:hover::after {
+    transform: scaleX(1);
 }
 
 #services {
@@ -713,37 +759,56 @@ button:hover {
 /* Stats Styles */
 .stats-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    margin: 4rem auto;
+    max-width: 1200px;
 }
 
 .stat-box {
-    background-color: var(--secondary-background);
-    padding: 1.5rem;
-    border-radius: 8px;
+    background: var(--secondary-background);
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.5s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
 }
 
 .stat-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 18px rgba(var(--shadow-color-rgb),0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(var(--shadow-color-rgb),0.15);
 }
 
 .stat-box h3 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: var(--primary-color);
-    margin-bottom: 0.5rem;
-    transition: color 0.5s ease;
+    margin: 0.5rem 0;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .stat-box p {
-    font-size: 1rem;
-    color: var(--border-color);
-    line-height: 1.5;
-    transition: color 0.5s ease;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    opacity: 0.9;
+    margin: 0;
 }
 
 /* Scrollbar Styles */
