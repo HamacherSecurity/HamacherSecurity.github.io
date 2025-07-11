@@ -542,11 +542,12 @@ dialog .modal-content h2 {
 }
 
 dialog .modal-content p {
-    color: var(--border-color);
+    color: var(--text-color);
     margin-bottom: 1rem;
     font-size: 1rem;
     line-height: 1.6;
     transition: color 0.5s ease;
+    opacity: 0.9;
 }
 
 dialog .close-btn {
